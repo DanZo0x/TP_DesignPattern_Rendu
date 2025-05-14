@@ -18,4 +18,11 @@ public class SingletonManager<T> : MonoBehaviour, IManager where T : MonoBehavio
             return;
         }
     }
+
+    public void ResetInstance()
+    {
+        Instance = null;
+        DestroyImmediate(gameObject);
+        return;
+    }
 }

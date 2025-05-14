@@ -6,4 +6,9 @@ public class GameManager : SingletonManager<GameManager>
     {
         Initialize();
     }
+
+    private void OnApplicationQuit()
+    {
+        ResetInstance();
+    }
 }
