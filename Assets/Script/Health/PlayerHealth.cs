@@ -33,7 +33,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     public void OnDeath()
     {
-        Debug.Log(gameObject.name = " Died.");
+        Debug.Log(name + " Died.");
         throw new System.NotImplementedException();
     }
 
