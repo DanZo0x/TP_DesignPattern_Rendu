@@ -7,6 +7,7 @@ public class InputHandler : MonoBehaviour
     [Header("References")]
     [SerializeField] private Rigidbody rb;
     [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private Animator anim;
     
     [Space]
     [Header("Variables")]
@@ -45,6 +46,7 @@ public class InputHandler : MonoBehaviour
         var skewedInput = matrix.MultiplyPoint3x4(movementVector3D);
 
         rb.MovePosition(transform.position + skewedInput);
+        anim.SetFloat("WalkSpeed", movementVector3D.magnitude * 100f);
     }
 
     private void Look()
@@ -65,5 +67,10 @@ public class InputHandler : MonoBehaviour
     {
         Move();
         Look();
+        
+        if (movementVector2D == Vector2.zero)
+        {
+            anim.SetFloat("WalkSpeed", 0);
+        }
     }
 }
