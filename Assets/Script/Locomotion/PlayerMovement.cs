@@ -1,11 +1,13 @@
+using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Animator anim;
-    
+
     [Space]
     [Header("Variables")]
     [SerializeField] private float playerSpeed = 7f;
@@ -13,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float turnSpeed = 360f;
     [SerializeField] private Vector2 movementVector2D;
     [SerializeField] private Vector3 movementVector3D;
-    
     public Vector2 MovementVector2D
     {
         get => movementVector2D;
@@ -25,12 +26,22 @@ public class PlayerMovement : MonoBehaviour
         get => movementVector3D;
         set => movementVector3D = value;
     }
-    
+
+
+    IStats stats;
+    [ShowNonSerializedField] private float playerSpeedWithStat;
+
+
     private void Awake()
     {
         rb = GetComponentInParent<Rigidbody>();
+        
+        stats = GetComponent<IStats>();
+        if (stats != null) playerSpeedWithStat = stats.calculateStat((int)playerSpeed, stats.Spe);
+        else playerSpeedWithStat = playerSpeed;
+
     }
-    
+
     private void Move()
     {
         if (movementVector2D == Vector2.zero)
@@ -53,19 +64,19 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        
+
         var relative = (rb.transform.position + movementVector3D) - rb.transform.position;
         var rotation = Quaternion.LookRotation(relative, Vector3.up);
         var offsetRotation = rotation * Quaternion.AngleAxis(-playerOffset, Vector3.down);
 
         rb.transform.rotation = Quaternion.RotateTowards(rb.transform.rotation, offsetRotation, turnSpeed * Time.deltaTime);
     }
-    
+
     private void Update()
     {
         Move();
         Look();
-        
+
         if (movementVector2D == Vector2.zero)
         {
             anim.SetFloat("WalkSpeed", 0);
