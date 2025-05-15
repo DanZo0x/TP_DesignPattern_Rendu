@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(IStats))]
-public class PlayerHealth : MonoBehaviour, IHealth
+public class ObjectHealth : MonoBehaviour, IHealth
 {
     #region Base Stats
     [ShowNonSerializedField] private int currentHealth;
