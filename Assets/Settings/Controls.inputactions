@@ -18,7 +18,7 @@
                     "name": "Attack",
                     "type": "Button",
                     "id": "69eb578d-11bf-46aa-a801-c59a74ef85eb",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -161,6 +161,17 @@
                     "name": "",
                     "id": "cec6cc6a-a3c3-4fdc-a4c0-f1a47019f42f",
                     "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6fceef41-507e-4df3-a44a-785b602d5bfc",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
