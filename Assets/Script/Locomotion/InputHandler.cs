@@ -6,8 +6,8 @@ public class InputHandler : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private PlayerInput playerInput;
     [SerializeField] private Animator anim;
+    [SerializeField] private BoxCollider attackHitbox;
     
     [Space]
     [Header("Variables")]
@@ -20,7 +20,6 @@ public class InputHandler : MonoBehaviour
     private void Awake()
     {
         rb = GetComponentInParent<Rigidbody>();
-        playerInput = GetComponent<PlayerInput>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -30,7 +29,10 @@ public class InputHandler : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        
+        if (context.performed)
+        {
+            anim.SetTrigger("Attack");
+        }
     }
 
     private void Move()
