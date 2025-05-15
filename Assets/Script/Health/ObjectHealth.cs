@@ -2,16 +2,36 @@ using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealth : MonoBehaviour, IHealth
+[DisallowMultipleComponent]
+[RequireComponent(typeof(IStats))]
+public class ObjectHealth : MonoBehaviour, IHealth
 {
-    [ShowNonSerializedField] private int currentHealth = 100;
+    #region Base Stats
+    [ShowNonSerializedField] private int currentHealth;
     int IHealth._currentHealth { get => currentHealth; set => currentHealth = value; }
 
     [SerializeField] private int maxHealth = 100;
     int IHealth._maxHealth { get => maxHealth; set => maxHealth = value; }
+    #endregion
+
+    IStats stats;
+
+    int maxHealthWithStat;
+
+    #region UI
 
     [SerializeField] Slider uiSlider;
     Slider IHealth.slider { get; set; }
+    #endregion
+    
+    private void Awake()
+    {
+        stats = GetComponent<IStats>();
+        if (stats != null) maxHealthWithStat = stats.calculateStat(maxHealth, stats.Htl);
+        else maxHealthWithStat = maxHealth;
+
+        currentHealth = maxHealthWithStat;
+    }
 
     public void TakeDamage(int amount)
     {
@@ -27,14 +47,14 @@ public class PlayerHealth : MonoBehaviour, IHealth
     public void RegainHealth(int amount)
     {
         currentHealth += amount;
-        if (currentHealth > maxHealth) currentHealth = maxHealth;
+        if (currentHealth > maxHealthWithStat) currentHealth = maxHealthWithStat;
         UpdateSlider();
     }
 
     public void OnDeath()
     {
-        Debug.Log(gameObject.name = " Died.");
-        throw new System.NotImplementedException();
+        Debug.Log(name + " Died.");
+        Destroy(this.gameObject);
     }
 
     private void Update()
@@ -54,7 +74,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     {
         if (uiSlider)
         {
-            float value = (float)currentHealth / (float)maxHealth;
+            float value = (float)currentHealth / (float)maxHealthWithStat;
             uiSlider.value = value;
             print(value);
         }

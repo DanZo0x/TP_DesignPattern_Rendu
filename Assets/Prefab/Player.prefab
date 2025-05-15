@@ -108,6 +108,7 @@ MonoBehaviour:
   turnSpeed: 720
   movementVector2D: {x: 0, y: 0}
   movementVector3D: {x: 0, y: 0, z: 0}
+  bIsAttacking: 0
 --- !u!114 &7533207612886454299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +483,7 @@ GameObject:
   - component: {fileID: 2221839628788110084}
   - component: {fileID: 9115170152858762924}
   - component: {fileID: 733498241487849165}
+  - component: {fileID: 7821191155603630338}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -552,6 +554,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   uiSlider: {fileID: 926989399275257158}
+--- !u!114 &7821191155603630338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6331558144665418028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b12ace261686a0458d5308de6ee6ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Str: 0
+  Spe: 0
+  Hlt: 10
 --- !u!1 &6900100987973336972
 GameObject:
   m_ObjectHideFlags: 0
