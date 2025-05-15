@@ -29655,6 +29655,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3256068811517952786, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1069930405}
     - target: {fileID: 3743190119350536514, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
       propertyPath: m_IsActive
@@ -29755,6 +29760,11 @@ PrefabInstance:
       propertyPath: attackHitbox
       value: 
       objectReference: {fileID: 885347355}
+    - target: {fileID: 6608645049490464490, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 164211095928399046}
     - target: {fileID: 7882711497132567549, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
       propertyPath: m_TagString
@@ -29801,6 +29811,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 164211095928399044}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &164211095928399046 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5271343636433851634, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 164211095928399044}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 729d10a8e4974e24bbd07a376227b5c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &316894929158137843
 PrefabInstance:
   m_ObjectHideFlags: 0

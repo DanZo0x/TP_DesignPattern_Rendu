@@ -100,14 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7447a2dd64d11604baaa19bcd925b225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  anim: {fileID: 0}
   attackHitbox: {fileID: 0}
-  playerSpeed: 7
-  playerOffset: -45
-  turnSpeed: 720
-  movementVector2D: {x: 0, y: 0}
-  movementVector3D: {x: 0, y: 0, z: 0}
+  anim: {fileID: 0}
+  playerMovement: {fileID: 0}
   bIsAttacking: 0
 --- !u!114 &7533207612886454299
 MonoBehaviour:
@@ -484,6 +479,7 @@ GameObject:
   - component: {fileID: 9115170152858762924}
   - component: {fileID: 733498241487849165}
   - component: {fileID: 7821191155603630338}
+  - component: {fileID: 5271343636433851634}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -569,6 +565,25 @@ MonoBehaviour:
   Str: 0
   Spe: 0
   Hlt: 10
+--- !u!114 &5271343636433851634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6331558144665418028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 729d10a8e4974e24bbd07a376227b5c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  anim: {fileID: 0}
+  playerSpeed: 7
+  playerOffset: -45
+  turnSpeed: 360
+  movementVector2D: {x: 0, y: 0}
+  movementVector3D: {x: 0, y: 0, z: 0}
 --- !u!1 &6900100987973336972
 GameObject:
   m_ObjectHideFlags: 0
