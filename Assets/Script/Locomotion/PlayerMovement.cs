@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        movementVector3D = new Vector3(movementVector2D.x, 0f, movementVector2D.y) * (Time.deltaTime * playerSpeed);
+        movementVector3D = new Vector3(movementVector2D.x, 0f, movementVector2D.y) * (Time.deltaTime * playerSpeedWithStat);
 
         var matrix = Matrix4x4.Rotate(Quaternion.Euler(0f, playerOffset, 0f));
         var skewedInput = matrix.MultiplyPoint3x4(movementVector3D);
