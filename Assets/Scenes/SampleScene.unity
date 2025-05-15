@@ -29764,7 +29764,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerMovement
       value: 
-      objectReference: {fileID: 164211095928399056}
+      objectReference: {fileID: 164211095928399046}
     - target: {fileID: 7882711497132567549, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
       propertyPath: m_TagString
@@ -29811,9 +29811,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 164211095928399044}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &164211095928399056 stripped
+--- !u!114 &164211095928399046 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3256068811517952786, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+  m_CorrespondingSourceObject: {fileID: 5271343636433851634, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
     type: 3}
   m_PrefabInstance: {fileID: 164211095928399044}
   m_PrefabAsset: {fileID: 0}
