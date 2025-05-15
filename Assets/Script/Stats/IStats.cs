@@ -1,10 +1,14 @@
+using System;
+
 public interface IStats
 {
     int Str { get; protected set; }
     int Spe { get; protected set; }
     int Htl { get; protected set; }
 
-    public void LvlUp(int NewStr, int NewHlt, int NewSpe);
+    public virtual int CalculateStat(int baseStat, int stat)
+    {
+        return (int)(baseStat + baseStat * (float)stat / 100f);
+    }
 
-    public int calculateStat(int baseStat, int stat);
 }

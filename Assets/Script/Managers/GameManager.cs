@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class GameManager : SingletonManager<GameManager>
 {
-    private void Awake()
+    public override void Awake()
     {
-        Initialize();
+        base.Awake();
     }
 
-    private void OnApplicationQuit()
+    public override void OnApplicationQuit()
     {
-        ResetInstance();
+        base.OnApplicationQuit();
     }
 }

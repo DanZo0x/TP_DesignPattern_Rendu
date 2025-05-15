@@ -1,5 +1,5 @@
 using NaughtyAttributes;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using System;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour, IStats
@@ -12,16 +12,5 @@ public class PlayerStats : MonoBehaviour, IStats
     int IStats.Str { get => Str; set => Str = value; }
     int IStats.Spe { get => Spe; set => Spe = value; }
     int IStats.Htl { get => Hlt; set => Hlt = value; }
-
-    public int calculateStat(int baseStat, int stat)
-    {
-        return (int)(baseStat + baseStat * (float)stat / 100f);
-    }
-
-    public void LvlUp(int NewStr, int NewHlt, int NewSpe)
-    {
-        throw new System.NotImplementedException();
-    }
-
 
 }

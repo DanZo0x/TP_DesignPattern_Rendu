@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponentInParent<Rigidbody>();
         
         stats = GetComponent<IStats>();
-        if (stats != null) playerSpeedWithStat = stats.calculateStat((int)playerSpeed, stats.Spe);
+        if (stats != null) playerSpeedWithStat = stats.CalculateStat((int)playerSpeed, stats.Spe);
         else playerSpeedWithStat = playerSpeed;
 
     }
