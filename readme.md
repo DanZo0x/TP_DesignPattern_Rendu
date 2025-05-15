@@ -1,6 +1,6 @@
 # Justifications Design pattern
 
-Hello Kevin here is the .dm for all the justification
+Hello Kevin here is the .dm for all the justifications
 
 ## Interfaces
 
@@ -24,7 +24,7 @@ This humble interface contains :
 abstract void RegainHealth(int amount);
 ``` 
 ``` 
-> When the hp is get under or equal 0 *die* 
+> When the HP is get under or equal 0 *die* 
 abstract void OnDeath();
 ```
 ```     
@@ -36,7 +36,7 @@ abstract void UpdateSlider();
 ### IStats
 ---
 Here is the **Statistics** interface; Like the *Player*,  *Mobs* also can have stats, therefore we made an interface for them so they can have easely tweakable values.  
-> **Note :** It's also now very easy to had statistics to other entities (like new enemies) in the game.
+> **Note :** It's also now very easy to add statistics to other entities (like new enemies) in the game.
 
 ``` 
     int Str { get; protected set; }
@@ -50,7 +50,7 @@ Here is the **Statistics** interface; Like the *Player*,  *Mobs* also can have s
 ``` 
 ### IManager & SingletonManager
 ---
-Even if **Singleton** Manager are not **recommanded**, they can be really useful for little or big project.
+Even if **Singleton** Manager are not **recomended**, they can be really useful for little or big project.
 
 So here lies the **interface** :  
 
@@ -103,24 +103,33 @@ public class SingletonManager<T> : MonoBehaviour, IManager where T : MonoBehavio
     }
 }
 ```
+---
 Like for the IStats it's now very useful to create new Managers and do not have to about it for the rest of the project.
 
 Even if the archictecture happens to update these lines will not break in the future.
 
-Here is an exemple of how it is implemented and now doesn't flood the GameManager.
+#### Here is an exemple of how it is implemented and now doesn't flood the GameManager :
 
 ```
 public class GameManager : SingletonManager<GameManager>
 {
+    public override void Awake()
+    {
+        base.Awake();
+    }
 
+    public override void OnApplicationQuit()
+    {
+        base.OnApplicationQuit();
+    }
 }
 ```
-> **Note :** The Reset is only useful when the *[Reloading Domain](https://docs.unity3d.com/6000.0/Documentation/Manual/domain-reloading.html "UNITY 6  Reload Domain API")* is off.
+> **Note :** *here*, The Reset is only useful when the *[Reloading Domain](https://docs.unity3d.com/6000.0/Documentation/Manual/domain-reloading.html "UNITY 6  Reload Domain API")* is off.
 
-
+## Events
 
 
 ## Diagram 
-Here is the Diagram that explain the Main line of how the game should work. 
+Here is the Diagram that explain the Main line of how the game should work : 
 ![How the Game work diagram](Justifications\Justification_Design_Patterns.png)
 *How the Game work diagram -Made By Sacha Epry & Dan Cheype*
