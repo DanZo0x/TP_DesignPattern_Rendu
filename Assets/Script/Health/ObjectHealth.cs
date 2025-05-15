@@ -6,23 +6,22 @@ using UnityEngine.UI;
 [RequireComponent(typeof(IStats))]
 public class ObjectHealth : MonoBehaviour, IHealth
 {
-    #region Base Stats
     [ShowNonSerializedField] private int currentHealth;
     int IHealth._currentHealth { get => currentHealth; set => currentHealth = value; }
 
+    [Header("Base Stats")]
     [SerializeField] private int maxHealth = 100;
     int IHealth._maxHealth { get => maxHealth; set => maxHealth = value; }
-    #endregion
+
+
 
     IStats stats;
-
     int maxHealthWithStat;
 
-    #region UI
 
+    [Header("UI")]
     [SerializeField] Slider uiSlider;
     Slider IHealth.slider { get; set; }
-    #endregion
     
     private void Awake()
     {
