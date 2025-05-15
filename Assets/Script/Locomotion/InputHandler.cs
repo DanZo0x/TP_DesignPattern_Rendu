@@ -1,6 +1,9 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class InputHandler : MonoBehaviour
 {
@@ -17,9 +20,14 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private Vector2 movementVector2D;
     [SerializeField] private Vector3 movementVector3D;
 
+    [Space]
+    [Header("Booleans")]
+    [SerializeField] private bool bIsAttacking = false;
+
     private void Awake()
     {
         rb = GetComponentInParent<Rigidbody>();
+        attackHitbox.enabled = false;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -29,10 +37,13 @@ public class InputHandler : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (!context.performed)
         {
-            anim.SetTrigger("Attack");
+            return;
         }
+        
+        anim.SetTrigger("Attack");
+        StartCoroutine(AttackCoroutine());
     }
 
     private void Move()
@@ -74,5 +85,15 @@ public class InputHandler : MonoBehaviour
         {
             anim.SetFloat("WalkSpeed", 0);
         }
+    }
+
+    private IEnumerator AttackCoroutine()
+    {
+        bIsAttacking = true;
+        attackHitbox.enabled = true;
+        
+        yield return new WaitForSeconds(1f);
+        bIsAttacking = false;
+        attackHitbox.enabled = false;
     }
 }
