@@ -125,7 +125,21 @@ public class GameManager : SingletonManager<GameManager>
 ```
 > **Note :** *here*, the reset is only useful when *[Reloading Domain](https://docs.unity3d.com/6000.0/Documentation/Manual/domain-reloading.html "UNITY 6  Reload Domain API")* is off.
 
-## Events
+## State Machine
+
+Here is the IState interface : 
+```
+    public bool HasStarted { get; set; }
+    public bool IsInit { get; set; }
+    public StateMachine _StateMachine { get; set; }
+
+    public abstract void StateInit(StateMachine sm);
+    public abstract void StateEnter();
+    public abstract void StateUpdate();
+    public abstract void StateExit();
+```
+
+Using an interface here is important because in a StateMachine you can find yourself with a lot of State; Having a normalized way to create them is Important
 
 
 ## Diagram 
