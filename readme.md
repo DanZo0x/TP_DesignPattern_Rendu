@@ -141,6 +141,70 @@ Here is the IState interface :
 
 Using an interface here is important because in a StateMachine you can find yourself with a lot of State; Having a normalized way to create them is Important
 
+## Factory Pattern
+
+We used a factory pattern to be able to easily instantiate different types of minions on the map.
+Doing this allows to not modify the base code logic and only add new code if needed (for a new type of minion for example).
+
+Here's an example of one of the minions factory/product:
+
+### Minion with strength stat product:
+```
+    [SerializeField] private string mProductName = "MinionStr";
+    
+    public string ProductName
+    {
+        get => mProductName;
+        set => mProductName = value;
+    }
+
+    private IStats minionStats;
+    private int minionStrength;
+
+    public void Initialize()
+    {
+        gameObject.name = mProductName;
+
+        if (TryGetComponent<IStats>(out minionStats))
+        {
+            minionStrength = minionStats.CalculateStat(minionStrength, minionStats.Str);
+        }
+    }
+```
+
+### Minion with strength factory :
+```
+    [SerializeField] private MinionStr minionStrengthProductPrefab;
+
+    private void OnEnable()
+    {
+        GetProduct();
+    }
+
+    public override IProduct GetProduct()
+    {
+        GameObject instance = Instantiate(minionStrengthProductPrefab.gameObject);
+        MinionStr newProductPrefab = instance.GetComponent<MinionStr>();
+        
+        newProductPrefab.Initialize();
+
+        return newProductPrefab;
+    }
+```
+
+The minion products use a simple product interface:
+```
+    public interface IProduct
+    {
+        public string ProductName { get; set; }
+    
+        public void Initialize();
+    }
+```
+
+In this case, all minion's "product" types have the same behaviour, as they just spawn in at the beginning of the game.
+The only thing that changes is their stat attribution.
+But if we had to continue the project, using this type of pattern would have been even more effective as we can easily change their behavior as well.
 
 ## Diagram 
 Here is the diagram that explain the Main line of how the game should work: 
