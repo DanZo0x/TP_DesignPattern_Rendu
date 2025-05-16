@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public interface IHealth
 {
-    int _currentHealth { get; protected set; }
-    int _maxHealth { get; protected set; }
+    int currentHealth { get; protected set; }
+    int maxHealth { get; protected set; }
 
     Slider slider { get; set; }
 

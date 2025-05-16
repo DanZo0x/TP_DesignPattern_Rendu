@@ -9,11 +9,11 @@ public class SingletonManager<T> : MonoBehaviour, IManager where T : MonoBehavio
         if(Instance is null)
         {
             Instance = this.GetComponent<T>();
-            Debug.Log(name + " Set as " + GetType().Name);
+            Debug.Log("Object : " + name + " Set as " + GetType().Name);
         }
         else
         {
-            Debug.LogWarning("Two " + GetType().Name + " in scene Deleting " + name  +".");
+            Debug.LogWarning("Two (or more) " + GetType().Name + " are detected in scene -> Deleting " + name  +".");
             DestroyImmediate(gameObject);
             return;
         }
@@ -24,5 +24,15 @@ public class SingletonManager<T> : MonoBehaviour, IManager where T : MonoBehavio
         Instance = null;
         DestroyImmediate(gameObject);
         return;
+    }
+
+    public virtual void Awake()
+    {
+        Initialize();
+    }
+
+    public virtual void OnApplicationQuit()
+    {
+        ResetInstance();
     }
 }

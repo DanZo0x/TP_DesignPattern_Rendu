@@ -3,15 +3,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [DisallowMultipleComponent]
-[RequireComponent(typeof(IStats))]
+//[RequireComponent(typeof(IStats))]
 public class ObjectHealth : MonoBehaviour, IHealth
 {
     [ShowNonSerializedField] private int currentHealth;
-    int IHealth._currentHealth { get => currentHealth; set => currentHealth = value; }
+    int IHealth.currentHealth { get => currentHealth; set => currentHealth = value; }
 
     [Header("Base Stats")]
     [SerializeField] private int maxHealth = 100;
-    int IHealth._maxHealth { get => maxHealth; set => maxHealth = value; }
+    int IHealth.maxHealth { get => maxHealth; set => maxHealth = value; }
 
 
 
@@ -25,13 +25,11 @@ public class ObjectHealth : MonoBehaviour, IHealth
     
     private void Awake()
     {
-        stats = GetComponent<IStats>();
-        if (stats != null) maxHealthWithStat = stats.calculateStat(maxHealth, stats.Htl);
+        if (TryGetComponent<IStats>(out stats)) maxHealthWithStat = stats.CalculateStat(maxHealth, stats.Htl);
         else maxHealthWithStat = maxHealth;
 
         currentHealth = maxHealthWithStat;
     }
-
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
@@ -58,6 +56,7 @@ public class ObjectHealth : MonoBehaviour, IHealth
 
     private void Update()
     {
+        //Tests Obviously
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(10);
@@ -75,7 +74,6 @@ public class ObjectHealth : MonoBehaviour, IHealth
         {
             float value = (float)currentHealth / (float)maxHealthWithStat;
             uiSlider.value = value;
-            print(value);
         }
     }
 }
