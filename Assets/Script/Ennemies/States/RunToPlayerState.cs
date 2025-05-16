@@ -18,7 +18,10 @@ public class RunToPlayerState : State
         player = GameManager.Instance.GetPlayer;
         agent = GetComponent<NavMeshAgent>();
 
+        IStats stats = GetComponent<IStats>();
+        Speed = stats.CalculateStat((int)Speed, stats.Spe);
 
+        agent.speed = Speed;
     }
     public override void StateEnter()
     {

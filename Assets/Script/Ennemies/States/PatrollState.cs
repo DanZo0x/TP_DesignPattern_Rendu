@@ -24,6 +24,10 @@ public class PatrollState : State
         agent = GetComponent<NavMeshAgent>();
         startPos = transform.position;
 
+        IStats stats = GetComponent<IStats>();
+        speedWhenPatrolling = stats.CalculateStat((int)speedWhenPatrolling, stats.Spe);
+
+        agent.speed = speedWhenPatrolling;
     }
 
     public override void StateEnter()
