@@ -12,11 +12,11 @@ public class CollisionHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("AttackHitbox"))
+        if (other.CompareTag("AttackHitbox"))
         {
+            Health.TakeDamage(10);
             return;
         }
         
-        Health.TakeDamage(10);
     }
 }
