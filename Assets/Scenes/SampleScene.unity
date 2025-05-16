@@ -10900,7 +10900,7 @@ GameObject:
   - component: {fileID: 743267634}
   - component: {fileID: 743267635}
   m_Layer: 0
-  m_Name: MinionFactory
+  m_Name: MinionStrFactory
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -10933,7 +10933,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 859e1d0d2046bf74cab9096e5b9079d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minionStrengthProductPrefab: {fileID: 0}
+  minionStrengthProductPrefab: {fileID: 3928117020949755948, guid: 10b5546e717859943a2b898b29cc318f,
+    type: 3}
 --- !u!4 &743874296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 04634d4422539e74cb1dc9d424a3e149,
@@ -11262,6 +11263,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fd20cf199cb93a4986c1f3864630c06, type: 3}
+--- !u!1 &766986061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 766986063}
+  - component: {fileID: 766986064}
+  m_Layer: 0
+  m_Name: MinionSpdFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &766986063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766986061}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.4392385, y: 0.9046011, z: 30.606983}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &766986064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766986061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3837a0b22a0b87944a53b23a289f6f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minionSpeedProductPrefab: {fileID: 5482268570786977424, guid: 194272483c4ec9c4e93684b32346ca71,
+    type: 3}
 --- !u!1001 &767310154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25388,6 +25435,52 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 854966523}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1830133507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1830133509}
+  - component: {fileID: 1830133508}
+  m_Layer: 0
+  m_Name: MinionHltFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1830133508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830133507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27a6059fdb2421c4aa7e654d9b4b52a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minionHealthProductPrefab: {fileID: 7962361569063579178, guid: 3ab028ae7df32f84784a0629f7c5877f,
+    type: 3}
+--- !u!4 &1830133509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830133507}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.4392385, y: 0.9046011, z: 30.606983}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1830583794 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5d68d1e38da0311479c8004fc150be37,
@@ -30188,3 +30281,5 @@ SceneRoots:
   - {fileID: 7568243593259621007}
   - {fileID: 1168906509}
   - {fileID: 743267634}
+  - {fileID: 1830133509}
+  - {fileID: 766986063}
