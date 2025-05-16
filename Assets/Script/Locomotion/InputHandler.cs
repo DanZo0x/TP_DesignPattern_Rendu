@@ -15,7 +15,7 @@ public class InputHandler : MonoBehaviour
     [Space]
     [Header("Booleans")]
     [SerializeField] private bool bIsAttacking = false;
-
+    
     private void Awake()
     {
         attackHitbox.enabled = false;
@@ -41,7 +41,6 @@ public class InputHandler : MonoBehaviour
     {
         bIsAttacking = true;
         attackHitbox.enabled = true;
-        
         yield return new WaitForSeconds(1f);
         bIsAttacking = false;
         attackHitbox.enabled = false;
